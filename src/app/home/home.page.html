@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pokemon App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="poke1">
+    <ion-item>
+      <ion-label position="floating">ID del Pokémon</ion-label>
+      <ion-input type="number" [(ngModel)]="pokemonId"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="getPokemonData()">Buscar</ion-button>
+    <ion-card *ngIf="pokemon">
+      <ion-card-header>
+        {{ pokemon.name }}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="pokemon.imageUrl" [alt]="pokemon.name" width="150">
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
+
+  <ion-card class="poke2">
+    <ion-item>
+      <ion-label position="floating">Ingrese Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="pokemonName"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="getPokemonDataByName()">Buscar</ion-button>
+    <ion-card *ngIf="pokemonByName">
+      <ion-card-header>
+        {{ pokemonByName.name }}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="pokemonByName.imageUrl" [alt]="pokemonByName.name" width="150">
+        <p>ID: {{ pokemonByName.id }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
+
+  <ion-card class="poke3">
+    <ion-item>
+      <ion-label position="floating">Ingrese ID o Nombre </ion-label>
+      <ion-input type="text" [(ngModel)]="pokemonQuery"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="getPokemonDataByQuery()">Buscar</ion-button>
+    <ion-card *ngIf="pokemonByQuery">
+      <ion-card-header>
+        {{ pokemonByQuery.name }}
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="pokemonByQuery.imageUrl" [alt]="pokemonByQuery.name" width="150">
+        <h2>ID: {{ pokemonByQuery.id }}</h2>
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
+</ion-content>
